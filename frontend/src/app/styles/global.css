@@ -1,0 +1,10 @@
+body,
+#root,
+html,
+form {
+    height: 100%;
+}
+
+main > :first-child {
+    height: 100%;
+}
