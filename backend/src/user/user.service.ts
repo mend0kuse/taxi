@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma, Profile } from '@prisma/client';
 import { excludeFields } from 'src/shared/lib/excludeFields';
 import { PrismaService } from 'src/prisma/prisma.service';
 import { ProfileDto } from './schemas/profile.dto';
@@ -65,12 +65,13 @@ export class UserService {
         return excludeFields(created, ['password']);
     }
 
-    async updateProfile(params: { email?: string; profile: ProfileDto }) {
-        const { email, profile } = params;
+    async updateProfile(params: { email?: string; phone?: string; profile: Prisma.ProfileUpdateInput }) {
+        const { email, profile, phone } = params;
 
         const updated = await this.prisma.user.update({
             where: { email },
             data: {
+                phone,
                 profile: {
                     update: profile,
                 },

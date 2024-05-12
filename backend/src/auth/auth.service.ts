@@ -38,7 +38,7 @@ export class AuthService {
         return this.usersService.createUser({
             email: user.email,
             phone: user.phone,
-            role: 'USER',
+            role: 'DRIVER',
             password: hashed,
         });
     }

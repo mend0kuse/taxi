@@ -29,7 +29,7 @@ export class UserController {
     @UseInterceptors(FileInterceptor('avatar', { dest: 'uploads/' }))
     updateProfile(
         @Req() request: RequestWithUser,
-        @Body() dto: ProfileDto,
+        @Body() dto: ProfileDto & { phone?: string },
         @UploadedFile(
             new ParseFilePipeBuilder().build({
                 fileIsRequired: false,
@@ -39,7 +39,8 @@ export class UserController {
     ) {
         return this.userService.updateProfile({
             email: request.user?.email,
-            profile: { ...dto, avatar: file ? makeImagePath(file) : undefined },
+            phone: dto.phone,
+            profile: { name: dto.name, avatar: file ? makeImagePath(file) : undefined },
         });
     }
 
