@@ -6,7 +6,7 @@ import { ROUTES } from '@/shared/routing';
 import { UserInput } from '@/entities/user';
 import { jwtDecode } from 'jwt-decode';
 import { LOCAL_STORAGE_TOKEN } from '@/entities/user';
-import { API_ENDPOINTS, QUERY_KEYS } from '@/shared/api/config';
+import { API_ENDPOINTS } from '@/shared/api/config';
 
 export const useLogin = () => {
     const navigate = useNavigate();
@@ -15,8 +15,6 @@ export const useLogin = () => {
         mutationFn: (user: UserInput) => {
             return $api.post<{ access_token: string }>(API_ENDPOINTS.LOGIN, user);
         },
-
-        mutationKey: [QUERY_KEYS.USER],
 
         onSuccess: (data) => {
             const token = data.data.access_token;

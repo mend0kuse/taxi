@@ -15,7 +15,6 @@ export const useRegistration = () => {
             await $api.post<TUser>(API_ENDPOINTS.REGISTRATION, user);
             return $api.post<{ access_token: string }>(API_ENDPOINTS.LOGIN, user);
         },
-        mutationKey: [QUERY_KEYS.USER],
         onSuccess: (data) => {
             const token = data.data.access_token;
             const userDecoded: TUser = jwtDecode(token);

@@ -8,8 +8,8 @@ import { App } from './app';
 
 import '@mantine/carousel/styles.css';
 import '@mantine/core/styles.css';
-import './styles/index.css';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
+import './styles/index.css';
 
 const domNode = document.getElementById('root');
 
@@ -28,9 +28,7 @@ const queryClient = new QueryClient({
 });
 
 const theme = createTheme({
-    primaryColor: 'yellow',
-
-    other: {},
+    primaryColor: 'blue',
 
     components: {
         Loader: Loader.extend({
@@ -51,10 +49,3 @@ root.render(
         </MantineProvider>
     </React.StrictMode>
 );
-
-/**
- * TODO:
- *
- * - Review
- * - Login save
- */

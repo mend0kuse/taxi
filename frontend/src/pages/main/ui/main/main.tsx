@@ -53,7 +53,7 @@ export const Main = observer(() => {
 
     return (
         <Layout px={0}>
-            <Image radius={0} src={'./slider.png'} />
+            <Image fit='contain' h={600} radius={0} src={'./cover-taxi.jpg'} />
 
             <Title mt={'xl'} ta={'center'}>
                 Воспользуйся нашими услугами

@@ -3,6 +3,7 @@ import { makeAutoObservable } from 'mobx';
 import { Nullable } from '@/shared/lib/typescript/Nullable';
 import { TService } from '@/entities/service';
 import { TOrder } from '../order';
+import { LOCAL_STORAGE_TOKEN } from './config';
 
 export type TUser = {
     id: number;
@@ -46,6 +47,11 @@ export class User {
 
     setData(data: TUser) {
         this.data = data;
+    }
+
+    logout() {
+        this.data = null;
+        localStorage.removeItem(LOCAL_STORAGE_TOKEN);
     }
 
     get isAdmin() {
