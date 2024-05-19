@@ -90,6 +90,7 @@ export class OrderService {
         return this.prismaService.order.findMany({
             where,
             include: this.orderInclude,
+            orderBy: { createdAt: 'desc' },
         });
     }
 

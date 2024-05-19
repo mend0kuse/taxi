@@ -17,6 +17,9 @@ export class UserService {
                 service: true,
                 review: true,
             },
+            orderBy: {
+                createdAt: 'desc' as any,
+            },
         },
         driverOrders: {
             include: {
@@ -28,6 +31,9 @@ export class UserService {
                 driver: true,
                 service: true,
                 review: true,
+            },
+            orderBy: {
+                createdAt: 'desc' as any,
             },
         },
     };
