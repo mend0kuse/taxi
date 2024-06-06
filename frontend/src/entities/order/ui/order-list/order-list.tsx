@@ -87,7 +87,7 @@ export const OrderList = observer(({ orders, onChangeStatus }: Props) => {
                                             component={Link}
                                             to={ROUTES.PROFILE(client.id)}
                                         >
-                                            {client.email}
+                                            {client.profile.name ?? client.email}
                                         </Button>
                                     </Table.Td>
                                     <Table.Td>
@@ -98,7 +98,7 @@ export const OrderList = observer(({ orders, onChangeStatus }: Props) => {
                                                 component={Link}
                                                 to={ROUTES.PROFILE(driver.id)}
                                             >
-                                                {driver.email}
+                                                {driver.profile.name ?? driver.email}
                                             </Button>
                                         ) : (
                                             <>
